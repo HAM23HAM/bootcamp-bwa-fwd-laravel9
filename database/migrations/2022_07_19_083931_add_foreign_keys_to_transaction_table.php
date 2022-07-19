@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('role_user', function (Blueprint $table) {
-            $table->id();
-            // $table->integer('role_id');
-            // $table->integer('user_id');
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('transaction', function (Blueprint $table) {
+            $table->foreignId('appointment_id', 'fk_transaction_to_appointment')->references('id')->on('appointment')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -29,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('role_user');
+        Schema::table('transaction', function (Blueprint $table) {
+            $table->dropForeign(['appointment_id']);
+        });
     }
 };

@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('appoinment', function (Blueprint $table) {
+        Schema::create('appointment', function (Blueprint $table) {
             $table->id();
-            $table->integer('doctor_id');
-            $table->integer('user_id');
-            $table->integer('consultation_id');
+            // $table->integer('doctor_id');
+            // $table->integer('user_id');
+            // $table->integer('consultation_id');
             $table->enum('level', [1,2,3]);
             $table->date('date');
             $table->time('time');
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appoinment');
+        Schema::dropIfExists('appointment');
     }
 };

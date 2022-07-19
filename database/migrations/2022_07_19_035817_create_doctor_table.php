@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('doctor', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('specialist_id');
-            $table->integer('user_id');
+            // $table->integer('specialist_id');
+            // $table->integer('user_id');
             $table->integer('name');
             $table->integer('fee');
             $table->integer('photo')->nullable();
